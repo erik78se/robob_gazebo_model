@@ -1,20 +1,20 @@
 <?xml version='1.0'?>
 <sdf version='1.4'>
-  <model name="robob_platform">
+  <model name="robob">
         <static>false</static>
-   <link name="base_link">
-        <pose>0 0 0.1 0 0 0</pose>
-        <collision name="platform_link_collision">
+   <link name="chassis">
+        <pose>0 0 0.01 0 0 0</pose>
+        <collision name="collision">
 	  <geometry>            
 	    <mesh>
-		  <uri>model://robob_platform.dae</uri>
+		  <uri>model://robob/robob_platform.dae</uri>
             </mesh>
           </geometry>
         </collision>
-        <visual name="platform_link_visual">
+        <visual name="visual">
             <geometry>
                 <mesh>
-		  <uri>model://robob_platform.dae</uri>
+		  <uri>model://robob/robob_platform.dae</uri>
                 </mesh>
             </geometry>
         </visual>
@@ -22,7 +22,7 @@
     
     <link name="left_front_wheel">
         <pose>0.09 0.09 0.03 0 1.5707 1.5707</pose>
-        <collision name="left_front_wheel_collision">
+        <collision name="collision">
           <geometry>
             <cylinder>
               <radius>.03</radius>
@@ -30,7 +30,7 @@
             </cylinder>
           </geometry>
         </collision>
-        <visual name="left_front_wheel_visual">
+        <visual name="visual">
           <geometry>
             <cylinder>
               <radius>.03</radius>
@@ -42,7 +42,7 @@
 
    <link name="right_front_wheel">
         <pose>0.09 -0.09 0.03 0 1.5707 1.5707</pose>
-        <collision name="right_front_wheel_collision">
+        <collision name="collision">
           <geometry>
             <cylinder>
               <radius>.03</radius>
@@ -50,7 +50,7 @@
             </cylinder>
           </geometry>
         </collision>
-        <visual name="right_front_wheel_visual">
+        <visual name="visual">
           <geometry>
             <cylinder>
               <radius>.03</radius>
@@ -62,7 +62,7 @@
 
    <link name="right_back_wheel">
         <pose>-0.09 -0.09 0.03 0 1.5707 1.5707</pose>
-        <collision name="right_back_wheel_collision">
+        <collision name="collision">
           <geometry>
             <cylinder>
               <radius>.03</radius>
@@ -70,7 +70,7 @@
             </cylinder>
           </geometry>
         </collision>
-        <visual name="right_back_wheelvisual">
+        <visual name="visual">
           <geometry>
             <cylinder>
               <radius>.03</radius>
@@ -82,7 +82,7 @@
 
     <link name="left_back_wheel">
         <pose>-0.09 0.09 0.03 0 1.5707 1.5707</pose>
-        <collision name="left_back_wheel_collision">
+        <collision name="collision">
           <geometry>
             <cylinder>
               <radius>.03</radius>
@@ -90,7 +90,7 @@
             </cylinder>
           </geometry>
         </collision>
-        <visual name="left_back_wheel_visual">
+        <visual name="visual">
           <geometry>
             <cylinder>
               <radius>.03</radius>
@@ -100,8 +100,8 @@
         </visual>
       </link>
 
-    <joint name="leftbackwheel_joint" type="continous">
-      <parent>base_link</parent>
+    <joint name="leftbackwheel_joint" type="continuous">
+      <parent>chassis</parent>
       <child>left_back_wheel</child>
       <pose>0 0 0 0 0 0</pose>
       <axis>
@@ -109,8 +109,8 @@
       </axis>
     </joint>
 
-    <joint name="rightbackwheel_joint" type="continous">
-      <parent>base_link</parent>
+    <joint name="rightbackwheel_joint" type="continuous">
+      <parent>chassis</parent>
       <child>right_back_wheel</child>
       <pose>0 0 0 0 0 0</pose>
       <axis>
@@ -118,8 +118,8 @@
       </axis>
     </joint>
 
-    <joint name="leftfrontwheel_joint" type="continous">
-      <parent>base_link</parent>
+    <joint name="leftfrontwheel_joint" type="continuous">
+      <parent>chassis</parent>
       <child>left_front_wheel</child>
       <pose>0 0 0 0 0 0</pose>
       <axis>
@@ -127,8 +127,8 @@
       </axis>
     </joint>
 
-    <joint name="rightfrontwheel_joint" type="continous">
-      <parent>base_link</parent>
+    <joint name="rightfrontwheel_joint" type="continuous">
+      <parent>chassis</parent>
       <child>right_front_wheel</child>
       <pose>0 0 0 0 0 0</pose>
       <axis>
@@ -147,13 +147,11 @@
  <commandTopic>cmd_vel</commandTopic>
  <odometryTopic>odom</odometryTopic>
  <odometryFrame>odom</odometryFrame>
- <robotBaseFrame>base_footprint</robotBaseFrame>
+ <robotBaseFrame>chassis</robotBaseFrame>
  </plugin>
 
 
     <plugin filename="libmodel_diff_drive.so" name="model_diff_drive_plugin">
-      <leftbackwheel_joint>leftbackwheel_joint</leftbackwheel_joint>
-      <rightbackwheel_joint>rightbackwheel_joint</rightbackwheel_joint>
       <leftfrontwheel_joint>leftfrontwheel_joint</leftfrontwheel_joint>
       <rightfrontwheel_joint>rightfrontwheel_joint</rightfrontwheel_joint>
     </plugin>

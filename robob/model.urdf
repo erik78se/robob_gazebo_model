@@ -1,122 +1,122 @@
 <?xml version="1.0" ?>
-<robot name="robob_platform">
-  <joint name="robob_platform__leftbackwheel_joint" type="continuous">
-    <parent link="robob_platform__base_link"/>
-    <child link="robob_platform__left_back_wheel"/>
+<robot name="robob">
+  <joint name="robob__leftbackwheel_joint" type="fixed">
+    <parent link="robob__chassis"/>
+    <child link="robob__left_back_wheel"/>
     <origin rpy="0      1.5707  1.5707" xyz="-0.09  0.09  0.03"/>
     <axis xyz="9.00000000e-05   9.00000000e-05   1.00000000e+00"/>
     <limit effort="0" lower="0" upper="0" velocity="0"/>
   </joint>
-  <joint name="robob_platform__rightbackwheel_joint" type="continuous">
-    <parent link="robob_platform__base_link"/>
-    <child link="robob_platform__right_back_wheel"/>
+  <joint name="robob__rightbackwheel_joint" type="fixed">
+    <parent link="robob__chassis"/>
+    <child link="robob__right_back_wheel"/>
     <origin rpy="0      1.5707  1.5707" xyz="-0.09 -0.09  0.03"/>
     <axis xyz="9.00000000e-05   9.00000000e-05   1.00000000e+00"/>
     <limit effort="0" lower="0" upper="0" velocity="0"/>
   </joint>
-  <joint name="robob_platform__leftfrontwheel_joint" type="continuous">
-    <parent link="robob_platform__base_link"/>
-    <child link="robob_platform__left_front_wheel"/>
+  <joint name="robob__leftfrontwheel_joint" type="fixed">
+    <parent link="robob__chassis"/>
+    <child link="robob__left_front_wheel"/>
     <origin rpy="0      1.5707  1.5707" xyz="0.09  0.09  0.03"/>
     <axis xyz="9.00000000e-05   9.00000000e-05   1.00000000e+00"/>
     <limit effort="0" lower="0" upper="0" velocity="0"/>
   </joint>
-  <joint name="robob_platform__rightfrontwheel_joint" type="continuous">
-    <parent link="robob_platform__base_link"/>
-    <child link="robob_platform__right_front_wheel"/>
+  <joint name="robob__rightfrontwheel_joint" type="fixed">
+    <parent link="robob__chassis"/>
+    <child link="robob__right_front_wheel"/>
     <origin rpy="0      1.5707  1.5707" xyz="0.09 -0.09  0.03"/>
     <axis xyz="9.00000000e-05   9.00000000e-05   1.00000000e+00"/>
     <limit effort="0" lower="0" upper="0" velocity="0"/>
   </joint>
-  <link name="robob_platform__base_link">
+  <link name="robob__chassis">
     <inertial>
       <mass value="0"/>
-      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <origin rpy="0  0  0" xyz="0    0    0.01"/>
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
     </inertial>
-    <collision name="robob_platform__platform_link_collision">
-      <origin rpy="0  0  0" xyz="0  0  0"/>
+    <collision name="robob__collision">
+      <origin rpy="0  0  0" xyz="0    0    0.01"/>
       <geometry>
-        <mesh filename="package://robot_description/models/robob/robob_platform.dae" scale="1.0 1.0 1.0"/>
+        <mesh filename="package://robot_description/meshes/robob_platform.dae OR robot_description/models/robob/robob_platform.dae" scale="1.0 1.0 1.0"/>
       </geometry>
     </collision>
-    <visual name="robob_platform__platform_link_visual">
-      <origin rpy="0  0  0" xyz="0  0  0"/>
+    <visual name="robob__visual">
+      <origin rpy="0  0  0" xyz="0    0    0.01"/>
       <geometry>
-        <mesh filename="package://robot_description/models/robob/robob_platform.dae" scale="1.0 1.0 1.0"/>
+        <mesh filename="package://robot_description/meshes/robob_platform.dae OR robot_description/models/robob/robob_platform.dae" scale="1.0 1.0 1.0"/>
       </geometry>
     </visual>
   </link>
-  <link name="robob_platform__left_front_wheel">
+  <link name="robob__left_front_wheel">
     <inertial>
       <mass value="0"/>
       <origin rpy="0  0  0" xyz="0  0  0"/>
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
     </inertial>
-    <collision name="robob_platform__left_front_wheel_collision">
+    <collision name="robob__collision">
       <origin rpy="0  0  0" xyz="0  0  0"/>
       <geometry>
         <cylinder length=".02" radius=".03"/>
       </geometry>
     </collision>
-    <visual name="robob_platform__left_front_wheel_visual">
-      <origin rpy="0  0  0" xyz="0  0  0"/>
-      <geometry>
-        <cylinder length=".02" radius=".03"/>
-      </geometry>
-    </visual>
-  </link>
-  <link name="robob_platform__right_front_wheel">
-    <inertial>
-      <mass value="0"/>
-      <origin rpy="0  0  0" xyz="0  0  0"/>
-      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
-    </inertial>
-    <collision name="robob_platform__right_front_wheel_collision">
-      <origin rpy="0  0  0" xyz="0  0  0"/>
-      <geometry>
-        <cylinder length=".02" radius=".03"/>
-      </geometry>
-    </collision>
-    <visual name="robob_platform__right_front_wheel_visual">
+    <visual name="robob__visual">
       <origin rpy="0  0  0" xyz="0  0  0"/>
       <geometry>
         <cylinder length=".02" radius=".03"/>
       </geometry>
     </visual>
   </link>
-  <link name="robob_platform__right_back_wheel">
+  <link name="robob__right_front_wheel">
     <inertial>
       <mass value="0"/>
       <origin rpy="0  0  0" xyz="0  0  0"/>
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
     </inertial>
-    <collision name="robob_platform__right_back_wheel_collision">
+    <collision name="robob__collision">
       <origin rpy="0  0  0" xyz="0  0  0"/>
       <geometry>
         <cylinder length=".02" radius=".03"/>
       </geometry>
     </collision>
-    <visual name="robob_platform__right_back_wheelvisual">
+    <visual name="robob__visual">
       <origin rpy="0  0  0" xyz="0  0  0"/>
       <geometry>
         <cylinder length=".02" radius=".03"/>
       </geometry>
     </visual>
   </link>
-  <link name="robob_platform__left_back_wheel">
+  <link name="robob__right_back_wheel">
     <inertial>
       <mass value="0"/>
       <origin rpy="0  0  0" xyz="0  0  0"/>
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
     </inertial>
-    <collision name="robob_platform__left_back_wheel_collision">
+    <collision name="robob__collision">
       <origin rpy="0  0  0" xyz="0  0  0"/>
       <geometry>
         <cylinder length=".02" radius=".03"/>
       </geometry>
     </collision>
-    <visual name="robob_platform__left_back_wheel_visual">
+    <visual name="robob__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length=".02" radius=".03"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="robob__left_back_wheel">
+    <inertial>
+      <mass value="0"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="robob__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <cylinder length=".02" radius=".03"/>
+      </geometry>
+    </collision>
+    <visual name="robob__visual">
       <origin rpy="0  0  0" xyz="0  0  0"/>
       <geometry>
         <cylinder length=".02" radius=".03"/>
