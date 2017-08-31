@@ -7,14 +7,14 @@
         <collision name="platform_link_collision">
 	  <geometry>            
 	    <mesh>
-		  <uri>model://robob_platform.dae</uri>
+		  <uri>model://robob/robob_platform.dae</uri>
             </mesh>
           </geometry>
         </collision>
         <visual name="platform_link_visual">
             <geometry>
                 <mesh>
-		  <uri>model://robob_platform.dae</uri>
+		  <uri>model://robob/robob_platform.dae</uri>
                 </mesh>
             </geometry>
         </visual>
